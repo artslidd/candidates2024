@@ -1,6 +1,32 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <script>
+      (function(h,o,u,n,d) {
+        h=h[d]=h[d]||{q:[],onReady:function(c){h.q.push(c)}}
+        d=o.createElement(u);d.async=1;d.src=n
+        n=o.getElementsByTagName(u)[0];n.parentNode.insertBefore(d,n)
+      })(window,document,'script','https://www.datadoghq-browser-agent.com/us1/v5/datadog-rum.js','DD_RUM')
+      window.DD_RUM.onReady(function() {
+        window.DD_RUM.init({
+          clientToken: 'pubf5e195f474841fb6e540b31b52c5cd45',
+          applicationId: 'a3ef10c1-e407-41fc-a48a-73510557df0d',
+          // `site` refers to the Datadog site parameter of your organization
+          // see https://docs.datadoghq.com/getting_started/site/
+          site: 'datadoghq.com',
+          service: 'candidates-2024',
+          env: 'prod',
+          // Specify a version number to identify the deployed version of your application in Datadog
+          // version: '1.0.0', 
+          sessionSampleRate: 100,
+          sessionReplaySampleRate: 20,
+          trackUserInteractions: true,
+          trackResources: true,
+          trackLongTasks: true,
+          defaultPrivacyLevel: 'allow',
+        });
+      })
+    </script>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/chess-horse.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
