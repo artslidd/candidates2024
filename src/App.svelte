@@ -15,7 +15,7 @@
   type PlayerId = keyof typeof players;
 
   const originalPlayerList = Object.keys(players) as PlayerId[];
-  let playerResults = [];
+  let playerResults: [PlayerId, number][] = [];
 
   type Game = {
     whitePlayer: PlayerId;
@@ -128,7 +128,10 @@
           Math.round(calculateScore(id, drawValue, removedPlayers) * 100) / 100,
         ];
       })
-      .sort((x, y) => y[1] - x[1]);
+      .sort((x, y) => (y[1] as number) - (x[1] as number)) as [
+      PlayerId,
+      number,
+    ][];
     total =
       (originalPlayerList.length - removedPlayers.length - 1) *
       (originalPlayerList.length - removedPlayers.length);
