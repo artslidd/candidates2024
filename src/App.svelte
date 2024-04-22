@@ -174,7 +174,11 @@
         <h4>{opt.label}?</h4>
         <span>
           <input type="checkbox" bind:checked={selected[index]} />
-          Yes
+          {#if selected[index]}
+            Yes
+          {:else}
+            No
+          {/if}
         </span>
       {/each}
     </div>
